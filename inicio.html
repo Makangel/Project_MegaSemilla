@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="images/logo/logo-c1/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="images/logo/logo-c1/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/logo/logo-c1/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="images/logo/logo-c1/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/logo/logo-c1/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="images/logo/logo-c1/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="images/logo/logo-c1/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="images/logo/logo-c1/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/logo/logo-c1/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="images/logo/logo-c1/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/logo/logo-c1/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="images/logo/logo-c1/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/logo/logo-c1/favicon-16x16.png">
+    <link rel="manifest" href="images/logo/logo-c1/manifest.json">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <script src="https://kit.fontawesome.com/771a952c9e.js" crossorigin="anonymous"></script> <!-- Fontawesome -->
+
+    <link rel="stylesheet" href="assets/css/inicio.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/menu/css/ionicon.min.css">
+    <link rel="stylesheet" href="assets/menu/css/style.css">
+
+    <title>MEGASEMILLA - TIENDA OFICIAL</title>
+</head>
+
+<body>
+
+    <!-- <HEADER -->
+
+    <div class="header-container">
+        <header class="header-site container-fluid">
+            <div class="logo-top-header">
+                <div class="row">
+                    <div class="col-lg-4 col-xs-2 col-sm-2 d-md-none d-lg-none">
+                        <div class="btn-mobile-container">
+                            <button type="button" class="btn-menu-mobile" id="btn-menu">
+                                <i class="fas fa-bars"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-xs-8 col-sm-8">
+                        <div class="logo">
+                            <img src="images/logo/banner.png">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5 col-xs-12 col-sm-12">
+                        <div class="search-container">
+                            <div class="form-group m-0">
+                                <input class="js-search-input form-control search-input" autocomplete="off" type="text"
+                                    name="q" placeholder="Buscar" aria-label="Buscar">
+
+                                <button type="button" class="btn search-input-submit" value="Buscar"
+                                    aria-label="Buscar">
+                                    <a href="#"> <i class="fas fa-search"></i> </a>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- éstos 3 suman 12 -->
+
+                    <div class="col-lg-4 col-xs-12 col-sm-12">
+                        <div class="user-menu-container">
+                            <div class="row">
+                                <div class="col mt-3 contact">
+                                    <div class="dropdown">
+                                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1"
+                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="far fa-id-card"></i>
+                                            <span>Contacto</span>
+                                        </button>
+
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                            <li> <a href="https://wa.me/+542616947724" target="_blank"> <i
+                                                        class="fab fa-whatsapp"></i>2616947724</a> </li>
+
+                                            <li> <a href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJfmrTBStkzHrHHgwFKxFLnGxrsFjHzFNQJvRJnRLjsKfLRlmTMHcxXJGmXXTdQDszJgLMg"
+                                                    target="_blank"> <i
+                                                        class="far fa-envelope"></i>megasemilla@gmail.com</a> </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="col mt-3 account">
+                                    <div class="dropdown">
+                                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1"
+                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="fas fa-user"></i>
+                                            <span>Mi Cuenta</span>
+                                        </button>
+
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                            <li> <a href="crear-cuenta.html">Crear Cuenta</a> </li>
+                                            <li> <a href="iniciar-sesion.html">Iniciar Sesion</a> </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="col mt-3">
+                                    <a href="#">
+                                        <i class="fas fa-shopping-cart"></i>
+                                        <span>Mi Carrito</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Mega Menu -->
+
+        <div class="header">
+            <section class="wrapper">
+                <div class="header-item-center">
+                    <div class="overlay"></div>
+                    <nav class="menu" id="menu">
+                        <div class="menu-mobile-header">
+                            <button type="button" class="menu-mobile-arrow"><i
+                                    class="ion ion-ios-arrow-back"></i></button>
+
+                            <div class="menu-mobile-title"></div>
+
+                            <button type="button" class="menu-mobile-close"><i class="ion ion-ios-close"></i></button>
+                        </div>
+
+                        <ul class="menu-section">
+                            <li class="menu-item"><a href="#">Inicio</a></li>
+                            <li class="menu-item-has-children">
+                                <a href="#">Productos</a>
+                                <div class="menu-subs menu-mega menu-column-4">
+                                    <div class="list-item">
+                                        <a href="#"> <h4 class="title">Cereales</h4> </a>
+
+                                        <ul>
+                                            <li><a href="#">Amaranto</a></li>
+                                            <li><a href="#">Avena intantanea</a></li>
+                                            <li><a href="#">Avena Tradicional</a></li>
+                                            <li><a href="#">Granola Berries</a></li>
+                                            <li><a href="#">Maiz Pisingallo</a></li>
+                                            <li><a href="#">Quinoa Blanca</a></li>
+                                            <li><a href="#">Quinoa Roja</a></li>
+                                            <li><a href="#">Quinoa Negra</a></li>
+                                            <li><a href="#">Quinoa Tricolor</a></li>
+                                            <li><a href="#">Trigo</a></li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="list-item">
+                                        <a href="#"> <h4 class="title">Frutos Deshidratados</h4> </a>
+
+                                        <ul>
+                                            <li><a href="#">Ananá Deshidratada</a></li>
+                                            <li><a href="#">Arandanos Deshidratados</a></li>
+                                            <li><a href="#">Banana Deshidratada</a></li>
+                                            <li><a href="#">Ciruelas Deshidratadas</a></li>
+                                            <li><a href="#">Kiwi Deshidratado</a></li>
+                                            <li><a href="#">Mango Deshidratado</a></li>
+                                            <li><a href="#">Papaya Deshidratada</a></li>
+                                            <li><a href="#">Pasas Morenas</a></li>
+                                            <li><a href="#">Pasas Rubias</a></li>
+                                            <li><a href="#">Pomelo Deshidratado</a></li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="list-item">
+                                        <a href="#"> <h4 class="title">Frutos Secos</h4> </a>
+                                        
+                                        <ul>
+                                            <li><a href="#">Almendras</a></li>
+                                            <li><a href="#">Almendras Laminadas</a></li>
+                                            <li><a href="#">Avellanas Europeas</a></li>
+                                            <li><a href="#">Mani Japones</a></li>
+                                            <li><a href="#">Mani Salado</a></li>
+                                            <li><a href="#">Mani Sin Sal</a></li>
+                                            <li><a href="#">Nueces</a></li>
+                                            <li><a href="#">Pistachos Salados</a></li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="list-item">
+                                        <a href="#"> <h4 class="title">Harinas</h4> </a>
+                                        
+                                        <ul>
+                                            <li><a href="#">Cacao Amargo</a></li>
+                                            <li><a href="#">Coco Rallado</a></li>
+                                            <li><a href="#">Harina de Almendra con piel</a></li>
+                                            <li><a href="#">Harina de Avena</a></li>
+                                            <li><a href="#">Harina Coco</a></li>
+                                            <li><a href="#">Harina de Garbanzo</a></li>
+                                            <li><a href="#">Harina de Lenteja</a></li>
+                                            <li><a href="#">Harina de Poroto</a></li>
+                                            <li><a href="#">Harina integral</a></li>
+                                            <li><a href="#">Maicena</a></li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="list-item">
+                                        <a href="#"> <h4 class="title">Legumbres</h4> </a>
+                                        
+                                        <ul>
+                                            <li><a href="#">Arvejas Partidas</a></li>
+                                            <li><a href="#">Carnes de Soya</a></li>
+                                            <li><a href="#">Grabanzos sin piel</a></li>
+                                            <li><a href="#">Lentejas Rojas</a></li>
+                                            <li><a href="#">Lentejas Negras</a></li>
+                                            <li><a href="#">Poroto Blanco </a></li>
+                                            <li><a href="#">Poroto Negro</a></li>
+                                            <li><a href="#">Poroto Rojo</a></li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="list-item">
+                                        <a href="#"> <h4 class="title">Mix</h4> </a>
+                                        
+                                        <ul>
+                                            <li><a href="#">Mix Clásico con sal</a></li>
+                                            <li><a href="#">Mix Clásico sin sal</a></li>
+                                            <li><a href="#">Mix Desayuno</a></li>
+                                            <li><a href="#">Mix Semillas</a></li>
+                                            <li><a href="#">Mix Dulce</a></li>
+                                            <li><a href="#">Mix Tropical </a></li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="list-item">
+                                        <a href="#"> <h2 class="title-1">Categorias</h2> </a>
+                                        <a href="#"> <h2 class="title-1">Todos</h2> </a>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="menu-item"><a href="#">Quienes somos?</a></li>
+                            <li class="menu-item"><a href="#">Ubicación</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <!-- Mega Menu -->
+
+                <div class="header-item-right">
+                    <button type="button" class="menu-mobile-toggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </section>
+        </div>
+    </div>
+
+
+    <!-- HEADER/> -->
+
+    <!-- <BODY -->
+
+    <div class="container main"></div> <!-- ELIMINAR A LA HORA DE RELLENAR -->
+
+    <!-- BODY/> -->
+
+    <!-- <FOOTER -->
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-xs-12 col-sm-12">
+                    <div class="footer-social">
+                        <ul>
+                            <li>
+                                <a href="https://wa.me/+542616947724" target="_blank"> <i
+                                        class="fab fa-whatsapp"></i></a>
+                            </li>
+
+                            <li>
+                                <a href="https://www.facebook.com/" target="_blank"> <i
+                                        class="fab fa-facebook"></i></i></a>
+                            </li>
+
+                            <li>
+                                <a href="https://www.instagram.com/" target="_blank"> <i
+                                        class="fab fa-instagram"></i></a>
+                            </li>
+
+                            <li>
+                                <a href="https://twitter.com/home" target="_blank"> <i class="fab fa-twitter"></i></a>
+                            </li>
+
+                            <li>
+                                <a href="https://github.com/On33-3/Project_MegaSemilla" target="_blank"> <i
+                                        class="fab fa-github"></i></a>
+                            </li>
+                        </ul>
+
+                        <span>Megasemilla © 2021 - Egg Educación - Mendoza - Argentina</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FOOTER/> -->
+
+    <!-- <SCRIPTS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="assets/js/index.js"></script>
+    <script src="assets/menu/js/script.js"></script>
+
+    <!-- SCRIPTS/> -->
+</body>
+
+</html>
