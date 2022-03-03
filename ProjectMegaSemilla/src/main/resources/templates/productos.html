@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://thymeleaf.org/">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="images/logo/logo-c1/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="images/logo/logo-c1/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/logo/logo-c1/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="images/logo/logo-c1/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/logo/logo-c1/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="images/logo/logo-c1/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="images/logo/logo-c1/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="images/logo/logo-c1/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/logo/logo-c1/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="images/logo/logo-c1/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/logo/logo-c1/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="images/logo/logo-c1/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/logo/logo-c1/favicon-16x16.png">
+    <link rel="manifest" href="images/logo/logo-c1/manifest.json">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <script src="https://kit.fontawesome.com/771a952c9e.js" crossorigin="anonymous"></script> <!-- Fontawesome -->
+
+    <link rel="stylesheet" href="/assets/css/productos.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/menu/css/ionicon.min.css">
+    <link rel="stylesheet" href="/assets/menu/css/style.css">
+
+    <title>MEGASEMILLA - TIENDA OFICIAL</title>
+</head>
+
+
+<body>
+
+    <!-- <HEADER -->
+
+    <div class="header-container">
+        <header class="header-site container-fluid">
+            <div class="logo-top-header">
+                <div class="row">
+                    <div class="col-lg-4 col-xs-2 col-sm-2 d-md-none d-lg-none">
+                        <div class="btn-mobile-container">
+                            <button type="button" class="btn-menu-mobile" id="btn-menu">
+                                <!--icono barra de busqueda -->
+                                <i class="fas fa-bars"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- banner MEGASEMILLA a la izquierda -->
+                    <div class="col-lg-3 col-xs-8 col-sm-8">
+                        <div class="logo">
+                            <img src="images/logo/banner.png">
+                        </div>
+                    </div>
+
+                    <!-- barra de busqueda con icono (FALTA RESOLVER LINKEO) -->
+                    <div class="col-lg-5 col-xs-12 col-sm-12">
+                        <div class="search-container">
+                            <div class="form-group m-0">
+                                <input class="js-search-input form-control search-input" autocomplete="off" type="text"
+                                    name="q" placeholder="Buscar" aria-label="Buscar">
+
+                                <button type="button" class="btn search-input-submit" value="Buscar"
+                                    aria-label="Buscar">
+                                    <a href="#9"> <i class="fas fa-search"></i> </a>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- éstos 3 suman 12 (LARGO DE LA BARRA DE BUSQUEDA) -->
+
+                    <div class="col-lg-4 col-xs-12 col-sm-12">
+                        <div class="user-menu-container">
+                            <div class="row">
+                                <div class="col mt-3 contact">
+                                    <div class="dropdown">
+                                        <a class="btn dropdown-toggle" type="button" id="dropdownMenuButton1"
+                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="far fa-id-card"></i>
+                                            <!-- slide (whatsapp y mail) desde CONTACTO -->
+                                            <span>Contacto</span>
+                                        </a>
+
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                            <li> <a href="https://wa.me/+542616947724" target="_blank"> <i
+                                                        class="fab fa-whatsapp"></i>2616947724</a> </li>
+
+                                            <li> <a href="https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=mendoza.megasemilla@gmail.com"
+                                                    target="_blank"> <i
+                                                        class="far fa-envelope"></i>mendoza.megasemilla</a> </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="col mt-3 account">
+                                    <div class="dropdown">
+                                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1"
+                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="fas fa-user"></i>
+                                            <span th:if="${session.usuariosession == null}">Mi Cuenta</span>
+                                            <span th:if="${session.usuariosession != null}"
+                                                th:text="${session.usuariosession.username}"></span>
+                                        </button>
+
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                            <li th:if="${session.usuariosession == null}"> <a class="efecto-color"
+                                                    href="/crear-cuenta">Crear Cuenta</a> </li>
+                                            <li th:if="${session.usuariosession == null}"> <a class="efecto-color"
+                                                    href="/iniciar-sesion">Iniciar Sesion</a> </li>
+                                            <li th:if="${session.usuariosession != null}"> <a class="efecto-color"
+                                                    th:href="@{/usuario/editar-perfil(id=__${session.usuariosession.id}__)}">Editar
+                                                    Perfil</a> </li>
+                                            <li th:if="${session.usuariosession != null}"> <a class="efecto-color"
+                                                    href="/logout">Salir</a> </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="col mt-3">
+                                    <a href="#9">
+                                        <i class="fas fa-shopping-cart"></i>
+                                        <!-- slide derecha desde CARRITO (FALTA RESOLVER) -->
+                                        <span>Mi Carrito</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Mega Menu (abarca los 4 botones INICIO / PRODUCTOS / QUIENES SOMOS / UBICACION) -->
+
+        <div class="header">
+            <section class="wrapper">
+                <div class="header-item-center">
+                    <div class="overlay"></div>
+                    <nav class="menu" id="menu">
+                        <div class="menu-mobile-header">
+                            <button type="button" class="menu-mobile-arrow"><i
+                                    class="ion ion-ios-arrow-back"></i></button>
+
+                            <div class="menu-mobile-title"></div>
+
+                            <button type="button" class="menu-mobile-close"><i class="ion ion-ios-close"></i></button>
+                        </div>
+
+                        <ul class="menu-section">
+                            <li class="menu-item"><a class="efecto-color" th:href="@{/}">Inicio</a></li>
+                            <li class="menu-item-has-children">
+                                <a class=" mega-menu-dropdown" href="#9">Productos</a>
+                                <!-- acá se desprende al hacer click un slide con todas las categorías y productos -->
+                                <div class="menu-subs menu-mega menu-column-4">
+                                    <div class="list-item">
+                                        <h4 class="title">Cereales</h4>
+
+                                        <ul>
+                                            <li><a href="#9">Amaranto</a></li>
+                                            <li><a href="#9">Avena intantanea</a></li>
+                                            <li><a href="#9">Avena Tradicional</a></li>
+                                            <li><a href="#9">Granola Berries</a></li>
+                                            <li><a href="#9">Maiz Pisingallo</a></li>
+                                            <li><a href="#9">Quinoa Blanca</a></li>
+                                            <li><a href="#9">Quinoa Roja</a></li>
+                                            <li><a href="#9">Quinoa Negra</a></li>
+                                            <li><a href="#9">Quinoa Tricolor</a></li>
+                                            <li><a href="#9">Trigo</a></li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="list-item">
+                                        <h4 class="title">Frutos Deshidratados</h4>
+
+                                        <ul>
+                                            <li><a href="#9">Ananá Deshidratada</a></li>
+                                            <li><a href="#9">Arandanos Deshidratados</a></li>
+                                            <li><a href="#9">Banana Deshidratada</a></li>
+                                            <li><a href="#9">Ciruelas Deshidratadas</a></li>
+                                            <li><a href="#9">Kiwi Deshidratado</a></li>
+                                            <li><a href="#9">Mango Deshidratado</a></li>
+                                            <li><a href="#9">Papaya Deshidratada</a></li>
+                                            <li><a href="#9">Pasas Morenas</a></li>
+                                            <li><a href="#9">Pasas Rubias</a></li>
+                                            <li><a href="#9">Pomelo Deshidratado</a></li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="list-item">
+                                        <h4 class="title">Frutos Secos</h4>
+
+                                        <ul>
+                                            <li><a href="#9">Almendras</a></li>
+                                            <li><a href="#9">Almendras Laminadas</a></li>
+                                            <li><a href="#9">Avellanas Europeas</a></li>
+                                            <li><a href="#9">Mani Japones</a></li>
+                                            <li><a href="#9">Mani Salado</a></li>
+                                            <li><a href="#9">Mani Sin Sal</a></li>
+                                            <li><a href="#9">Nueces</a></li>
+                                            <li><a href="#9">Pistachos Salados</a></li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="list-item">
+                                        <h4 class="title">Harinas</h4>
+
+                                        <ul>
+                                            <li><a href="#9">Cacao Amargo</a></li>
+                                            <li><a href="#9">Coco Rallado</a></li>
+                                            <li><a href="#9">Harina de Almendra con piel</a></li>
+                                            <li><a href="#9">Harina de Avena</a></li>
+                                            <li><a href="#9">Harina Coco</a></li>
+                                            <li><a href="#9">Harina de Garbanzo</a></li>
+                                            <li><a href="#9">Harina de Lenteja</a></li>
+                                            <li><a href="#9">Harina de Poroto</a></li>
+                                            <li><a href="#9">Harina integral</a></li>
+                                            <li><a href="#9">Maicena</a></li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="list-item">
+                                        <h4 class="title">Legumbres</h4>
+
+                                        <ul>
+                                            <li><a href="#9">Arvejas Partidas</a></li>
+                                            <li><a href="#9">Carnes de Soya</a></li>
+                                            <li><a href="#9">Grabanzos sin piel</a></li>
+                                            <li><a href="#9">Lentejas Rojas</a></li>
+                                            <li><a href="#9">Lentejas Negras</a></li>
+                                            <li><a href="#9">Poroto Blanco </a></li>
+                                            <li><a href="#9">Poroto Negro</a></li>
+                                            <li><a href="#9">Poroto Rojo</a></li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="list-item">
+                                        <h4 class="title">Mix</h4>
+
+                                        <ul>
+                                            <li><a href="#9">Mix Clásico con sal</a></li>
+                                            <li><a href="#9">Mix Clásico sin sal</a></li>
+                                            <li><a href="#9">Mix Desayuno</a></li>
+                                            <li><a href="#9">Mix Semillas</a></li>
+                                            <li><a href="#9">Mix Dulce</a></li>
+                                            <li><a href="#9">Mix Tropical </a></li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="list-item">
+                                        <h4 class="title"> <a class="efecto-2" th:href="@{productos}">Ver todos los
+                                                productos</a> </h4>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="menu-item"><a class="efecto-color" th:hred="@{quienes-somos}">Quienes somos?</a>
+                            </li>
+                            <li class="menu-item"><a href="https://goo.gl/maps/FEx3zBDX8e86cyXU8"
+                                    target="_blank">Ubicación</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="header-item-right">
+                    <button type="button" class="menu-mobile-toggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- HEADER/> -->
+
+    <!-- <BODY -->
+
+    <div class="contenedor">
+        <h1>Productos</h1>
+        <div class="grid-container">
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\cereales-10\amaranto-1.jpg" alt="nuez">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Amaranto</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\cereales-10\avena-instantanea-1.jpg" alt="mani">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Avena instantánea</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\cereales-10\avena-tradicional-1.jpg" alt="almendras">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Avena tradicional</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\cereales-10\granola-berries-1.jpg" alt="bellotas">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Granola berries</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\cereales-10\maiz-pisingallo-1.jpg" alt="frutos bowl">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Maíz pisingallo</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!---->
+        <div class="grid-container">
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\cereales-10\quinoa-blanca-1.jpg" alt="nuez">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Quinoa blanca</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\cereales-10\quinoa-negra-1.jpg" alt="mani">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Quinoa negra</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\cereales-10\quinoa-roja-1.jpg" alt="almendras">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Quinoa roja</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\cereales-10\quinoa-tricolor-1.jpg" alt="bellotas">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Quinoa tricolor</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\cereales-10\trigo-1.jpg" alt="frutos bowl">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Trigo</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!---->
+        <div class="grid-container">
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\frutos-deshidratados-12\anana-deshidratada-1.jpg" alt="nuez">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Ananá deshidratada</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\frutos-deshidratados-12\arandanos-deshidratados-1.jpg" alt="mani">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Arandanos deshidratados</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\frutos-deshidratados-12\banana-deshidratada-1.jpg" alt="almendras">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Banana deshidratada</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\frutos-deshidratados-12\ciruelas-deshidratadas-1.jpg" alt="bellotas">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Ciruelas deshidratadas</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\frutos-deshidratados-12\damasco-turco-1.jpg" alt="frutos bowl">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Damasco turco</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!---->
+        <div class="grid-container">
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\frutos-deshidratados-12\kiwi-deshidratado-1.jpg" alt="nuez">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Kiwi deshidratado</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\frutos-deshidratados-12\mango-deshidratado-1.jpg" alt="mani">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Mango deshidratado</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\frutos-deshidratados-12\melon-deshidratado-1.jpg" alt="almendras">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Melón deshidratado</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\frutos-deshidratados-12\papaya-deshidratada-1.jpg" alt="bellotas">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Papayas deshidratadas</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\frutos-deshidratados-12\pasas-morenas-1.jpg" alt="frutos bowl">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Pasas moradas</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!---->
+        <div class="grid-container">
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\frutos-deshidratados-12\pasas-rubias-1.jpg" alt="nuez">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Pasas rubias</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\frutos-deshidratados-12\pomelo-deshidratado-1.jpg" alt="mani">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Pomelo deshidratado</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\frutos-secos-8\almendras-1.jpg" alt="almendras">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Almendras</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\frutos-secos-8\almendras-laminadas-1.jpg" alt="bellotas">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Almendras laminadas</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\frutos-secos-8\avellanas-europeas-1.jpg" alt="frutos bowl">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Avellanas europeas</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!---->
+        <div class="grid-container">
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\frutos-secos-8\mani-japones-salado-1.jpg" alt="nuez">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Maní japones salado</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\frutos-secos-8\mani-salado-1.jpg" alt="mani">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Maní salado</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\frutos-secos-8\mani-sin-sal-1.jpg" alt="almendras">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Maní sin sal</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\frutos-secos-8\nueces-1.jpg" alt="bellotas">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Nueces</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\frutos-secos-8\pistachos-salados-1.jpg" alt="frutos bowl">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Pistachos salados</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!---->
+        <div class="grid-container">
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\harinas-10\cacao-amargo-1.jpg" alt="nuez">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Cacao amargo</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\harinas-10\coco-rallado-1.jpg" alt="mani">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Coco rallado</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\harinas-10\harina-de-almendra-sin-piel-1.jpg" alt="almendras">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Harina de almendras sin piel</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver produchto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\harinas-10\harina-de-avena-1.jpg" alt="bellotas">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Harina de avena</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\harinas-10\harina-de-coco-1.jpg" alt="frutos bowl">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Harina de coco</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!---->
+        <div class="grid-container">
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\harinas-10\harina-de-garbanzo-1.jpg" alt="nuez">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Harina de garbanzos</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\harinas-10\harina-de-lenteja-1.jpg" alt="mani">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Harina de lentejas</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\harinas-10\harina-de-porotos-1.jpg" alt="almendras">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Harina de porotos</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\harinas-10\harina-integral-1.jpg" alt="bellotas">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Harina integral</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\harinas-10\maicena-1.jpg" alt="frutos bowl">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Maicena</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!---->
+        <div class="grid-container">
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\legumbres-8\arvejas-partidas-1.jpg" alt="nuez">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Arvejas partidas</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\legumbres-8\carne-de-soya-1.jpg" alt="mani">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Carne de soya</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\legumbres-8\garbanzos-sin-piel-1.jpg" alt="almendras">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Garbanzos sin piel</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <button class="btn button">Ver producto</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\legumbres-8\lentejas-rojas-1.jpg" alt="bellotas">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Lentejas rojas</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\legumbres-8\lentejas-negras-1.jpg" alt="frutos bowl">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Lentejas negras</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!---->
+        <div class="grid-container">
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\legumbres-8\poroto-blanco-1.jpg" alt="nuez">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Poroto blanco</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\legumbres-8\poroto-negro-1.jpg" alt="mani">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Poroto negro</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\legumbres-8\poroto-rojo-1.jpg" alt="almendras">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Poroto rojo</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\mix-6\mix-clasico-con-sal-1.jpg" alt="bellotas">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Mix clásico con sal</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\mix-6\mix-clasico-sin-sal-1.jpg" alt="frutos bowl">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Mix clásico sin sal</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!---->
+        <div class="grid-container">
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\mix-6\mix-desayuno-1.jpg" alt="nuez">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Mix desayuno</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\mix-6\mix-dulce-1.jpg" alt="mani">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Mix dulce</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\mix-6\mix-semillas-1.jpg" alt="almendras">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Mix semillas</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\mix-6\mix-tropical-1.jpg" alt="bellotas">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Mix tropical</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\semillas-5\chia-1.jpg" alt="frutos bowl">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Chía</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!---->
+        <div class="grid-container">
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\semillas-5\girasol-1.jpg" alt="nuez">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Girasol</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\semillas-5\linaza-1.jpg" alt="mani">
+                </div>
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Linaza</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\semillas-5\semillas-de-calabaza-1.jpg" alt="almendras">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Semillas de calabaza</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-item">
+                <div class="image-container">
+                    <img src="images\productos\semillas-5\sesamo-natural-1.jpg" alt="bellotas">
+                </div>
+
+                <div class="description-container">
+                    <div class="producto-nombre">
+                        <span style="font-size: 20px;">Sésamo natural</span> <br>
+                        <span style="font-size: 13px;">(250gr - 500gr - 1kg)</span> <br>
+                        <span style="font-size: 20px;"> <b>$350</b> </span>
+                    </div>
+
+                    <div class="button-container">
+                        <a href="#9">
+                            <button class="btn button">Ver producto</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BODY/> -->
+
+    <!-- <FOOTER -->
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-xs-12 col-sm-12">
+                    <div class="footer-social">
+                        <ul>
+                            <li>
+                                <a href="https://wa.me/+542616947724" target="_blank"> <i
+                                        class="fab fa-whatsapp"></i></a>
+                            </li>
+
+                            <li>
+                                <a href="https://www.facebook.com/" target="_blank"> <i
+                                        class="fab fa-facebook"></i></i></a>
+                            </li>
+
+                            <li>
+                                <a href="https://www.instagram.com/" target="_blank"> <i
+                                        class="fab fa-instagram"></i></a>
+                            </li>
+
+                            <li>
+                                <a href="https://twitter.com/home" target="_blank"> <i class="fab fa-twitter"></i></a>
+                            </li>
+
+                            <li>
+                                <a href="https://github.com/On33-3/Project_MegaSemilla" target="_blank"> <i
+                                        class="fab fa-github"></i></a>
+                            </li>
+                        </ul>
+
+                        <span>Megasemilla © 2021 - Egg Educación - Mendoza - Argentina</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FOOTER/> -->
+
+    <!-- <SCRIPTS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="assets/js/index.js"></script>
+    <script src="assets/menu/js/script.js"></script>
+
+    <!-- SCRIPTS/> -->
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+*Clases que fueron borradas son: -> LoginController
+		     		 -> CreateUserController
+		     		 -> UsuarioInterfaz
+		     		 -> UsuarioService	
+
+*En la clase entidades de Usuario reemplacé el id ya que me tiraba error siempre que trataba de registrarme(la verdad que no tengo idea)
+  lo cambié por tipo String que lo genere de forma automaticamente, mezclando numeros y letras(el "uuid").
+
+*Tambien agregué en Usuario el atributo ROL, que todos por defecto van a ser "USUARIO", y por base de datos colocamos a "ADMIN" quienes queramos(Nosotros por ejemplo)
+
+*Implementé la clase UsuarioServicio de manera completa(ya que se mezclaba con la otra), que reciba y registre los datos, faltaria comprobar el modificar.
+
+*Implementé el servicio de errores dentro de la clase UsuarioServicio cuando se intente registrar e ingrese un codigo erróneo
+  le saldrá un cartel rojo indicando lo que colocó mal.(en el html de crear-cuenta, arriba del formulario)
+
+*Tambien del metodo loadByUsername que es para crear los metodos, y roles para autorizar
+
+*La configuracionSeguridad ya esta andando de manera estable, a partir del punto anterior
+
+*Cree 3 htmls mas que son "sesionactiva", "registroactivo", "errores". 
+	°De los cuales el primero "sesionactiva" es cuando ingrese el login de manera correcta (En el mismo reemplacé el que dice "Mi Cuenta" arriba a la derecha, 
+  dice el nombre del usuario - el username)
+	°El segundo es cuando se registre de manera correcta sin errores
+	°El tercero es cuando haya un error ya sea, 404, 500, se muestren en la página y no se vea feo y todo roto con el motor de Apache Tomcat
+
+*Hablando del html error, creé la clase Controlador de Errores en la que indica eso mismo que indique en el html de errores.

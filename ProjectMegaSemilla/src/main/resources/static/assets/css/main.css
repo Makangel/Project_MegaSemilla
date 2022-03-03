@@ -1,0 +1,381 @@
+:root {
+    --color_1: #e6decf;
+    --color_2: #ba9c82;
+    --color_3: #825b46;
+    --color_4: #241407;
+    --color_5: #b48484;
+}
+
+@font-face {
+    font-family: "fuente";
+    src: url("../fonts/Montserrat-Regular.ttf");
+}
+
+* {
+    font-family: "fuente";
+}
+
+*::selection {
+    background: rgba(9, 9, 9, .2);
+}
+
+body {
+    margin: 0;
+}
+
+.main {  /* container vacio "inicio.html" */
+    min-height: 480px;
+    margin-top: 200px;
+}
+
+/* <HEADER */
+
+.header-container {
+    position: fixed;
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    width: 100%;
+}
+
+.header-site {
+    height: 134px;
+    transition: height 0.35s;
+}
+
+.header-container.header-position .header-site {
+    height: 90px
+}
+
+.header-site {
+    background: var(--color_2);
+}
+
+.logo {
+    margin: 0;
+}
+
+.logo img {
+    width: 230px;
+    transition: width 0.35s;
+}
+
+.header-container.header-position .logo img {
+    width: 160px;
+}
+
+.search-container {
+    position: relative;
+    margin-top: 28px;
+}
+
+.search-input-submit {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.search-input {
+    border-radius: 16px;
+    border: 1px solid var(--color_1);
+}
+.search-input:focus{
+    color: none;
+    background-color: none;
+    border-color: none;
+    outline: 0;
+}
+
+.search-container .fa-search {
+    color: var(--color_3);
+}
+
+.user-menu-container a {
+    color: white;
+    text-align: center;
+    display: block;
+    width: auto;
+}
+
+.user-menu-container a:hover {
+    background: none;
+    color: var(--color_3);
+}
+
+.user-menu-container span {
+    display: block;
+}
+
+.user-menu-container span:hover,
+.user-menu-container i:hover {
+    background: none;
+    color: var(--color_3);
+}
+
+nav {
+    background-color: var(--color_2);
+    text-align: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.barra-nav a {
+    color: #fff;
+    text-transform: uppercase;
+    padding: 10px 40px;
+}
+
+.form-control:focus {
+    border: none;
+    box-shadow: none;
+}
+
+.barra-nav a:hover {
+    background: none;
+    color: var(--color_3);
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+    padding: 10px 30px;
+}
+
+.btn-mobile-container {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-menu-mobile {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 30px;
+}
+
+/* mi cuenta/contacto - login/register (DESPLEGABLE */
+
+.account .dropdown,
+.contact .dropdown {
+    text-align: center;
+}
+
+.contact .dropdown .btn:active,
+.contact .dropdown .btn,
+.account .dropdown .btn:active,
+.account .dropdown .btn {
+    color: #fff;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+}
+
+.contact .dropdown-menu,
+.account .dropdown-menu {
+    background-color: rgba(194, 164, 138, .9);
+    box-shadow: 2px 2px rgb(0 0 0 / 0.1);
+}
+
+.contact .dropdown-menu li {
+    color: #fff;
+    text-align: left;
+    font-size: 14px;
+    display: inline-block;
+    padding: 2px 0 2px 10px;
+}
+
+.account .dropdown-menu li {
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    display: block;
+    padding: 2px 0px 2px 0px;
+}
+
+.account .dropdown-menu i,
+.contact .dropdown-menu i {
+    padding-right: 7px;
+}
+
+.account .dropdown .btn:hover,
+.contact .dropdown .btn:hover {
+    color: var(--color_3);
+}
+
+.contact .dropdown-toggle::after,
+.account .dropdown-toggle::after {
+    display: none;
+}
+
+.contact .dropdown-menu {
+    min-width: 240px
+}
+
+.list-item h4 a{
+    color: #241407;
+}
+
+.list-item h4 a:hover {
+    color: #fff;
+}
+
+.efecto-color {
+    color: #fff;
+}
+
+.efecto-color:hover {
+    color: var(--color_3);
+}
+
+/* responsive */
+
+@media (max-width: 768px) {
+    .barra-nav {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: -100%;
+        transition: left 0.35s cubic-bezier(0.05, 1.04, 0.72, 0.98) 0s;
+        background: none;
+    }
+
+    .logo {
+        text-align: center;
+    }
+
+    .active-menu {
+        left: 0px;
+    }
+
+    .menu-items {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 200px;
+        height: 100%;
+        background-color: var(--color_2);
+        z-index: 200;
+    }
+
+    .menu-mobile-bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        left: 0;
+        top: 0;
+        z-index: 100
+    }
+
+    .barra-nav a {
+        display: block;
+        text-align: left;
+    }
+}
+
+/* HEADER/> */
+
+/* <FOOTER */
+
+.footer {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    background: #ebeaea;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 40px;
+}
+
+.footer-contact ul,
+.footer-social ul,
+.footer-links ul {
+    padding: 0;
+    margin: 0;
+}
+
+.footer-contact li,
+.footer-social li,
+.footer-links li {
+    padding: 0;
+}
+
+.contact-info {
+    margin-top: 10px;
+    padding-left: 0;
+}
+
+.contact-icon {
+    display: block;
+    margin: 0 auto 10px auto;
+}
+
+.contact-item {
+    list-style: none;
+    margin-bottom: 12px;
+}
+
+.contact-link {
+    list-style: none;
+}
+
+footer a,
+footer .contact-link {
+    color: #ba9c82;
+}
+
+.icon-inline.icon-w {
+    text-align: center;
+    width: 1.25em;
+}
+
+.icon-inline.icon-lg {
+    vertical-align: -0.225em;
+}
+
+footer .contact-item-icon {
+    fill: #ba9c82;
+    margin-right: 6px;
+}
+
+.footer span {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: block;
+    margin-top: 30px;
+    font-size: 12px;
+    color: #b48484;
+    text-align: center;
+}
+
+.footer-social ul {
+    display: flex;
+    justify-content: center;
+}
+
+.footer-social ul li {
+    padding: 16px;
+}
+
+.footer-social ul li .fab {
+    font-size: 20px;
+}
+
+.footer-links ul li {
+    margin-bottom: 5px;
+}
+
+.footer a:hover {
+    color: #825b46
+}
+
+/* FOOTER/> */

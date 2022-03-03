@@ -1,0 +1,224 @@
+:root {
+    --color_1: #e6decf;
+    --color_2: #ba9c82;
+    --color_3: #825b46;
+    --color_4: #241407;
+    --color_5: #b48484;
+}
+
+/* <BODY */
+
+*::selection {
+    background: rgba(9, 9, 9, .2);
+}
+
+.container {
+    width: 40%;
+}
+
+h2 {
+    margin: 0 0 30px;
+    text-align: center;
+    font-size: 2rem;
+    color: var(--color_2);
+    padding-top: 40px;
+}
+
+.caja {
+    position: relative;
+}
+
+.caja input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    margin-bottom: 30px;
+    color: var(--color_4);
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid rgba(8, 8, 8, 0.3);
+    outline: none;
+    background: transparent;
+}
+
+.caja label {
+    position: absolute;
+    top: -10px;
+    left: 0;
+    color: var(--color_3);
+    font-size: 12px;
+}
+
+/* .caja input:focus~label,
+.caja input:valid~label {
+    top: -20px;
+    left: 0;
+    color: var(--color_3);
+    font-size: 12px;
+} */
+
+/* botón submit */
+
+.boton {
+    margin: 0;
+    border: 0;
+    font-size: 18px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    margin-top: -25px;
+    margin-left: -100px;
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+.boton:hover {
+    cursor: pointer;
+}
+
+/* animacion boton submit*/
+
+/* .slide {
+    margin-top: 20px;
+    overflow: hidden;
+    border: 1px solid #825b46;
+}
+
+.slide a {
+    display: block;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding: 10px;
+}
+
+.slide a:nth-child(1) {
+    color: #825b46;
+    background-color: #ffffff;
+}
+
+.slide a:nth-child(2) {
+    color: #ffffff;
+    background-color: #825b46;
+    transition: top 0.1s ease;
+    -webkit-transition: top 0.1s ease;
+    -moz-transition: top 0.1s ease;
+    top: -50px;
+}
+
+.slide a:nth-child(3) {
+    color: #ffffff;
+    transition: opacity 0.1s ease;
+    -webkit-transition: opacity 0.1s ease;
+    -moz-transition: opacity 0.1s ease;
+    opacity: 0;
+}
+
+.slide:hover a:nth-child(2) {
+    top: 0px;
+    transition: top 0.1s ease;
+    -webkit-transition: top 0.1s ease;
+    -moz-transition: top 0.1s ease;
+}
+
+.slide:hover a:nth-child(3) {
+    opacity: 1;
+    transition: opacity 0.1s ease;
+    -webkit-transition: opacity 0.1s ease;
+    -moz-transition: opacity 0.1s ease;
+}
+
+.slide a button:hover,
+.slide a:hover {
+    color: #ffffff;
+} */
+
+form button {
+    display: block;
+    margin: 30px auto auto auto;
+    color: #fff;
+    padding: 8px;
+    background-color: #825b46;
+    border-radius: 4px;
+    border: 1px solid #fff;
+}
+
+form button:hover {
+    color: #241407;
+    background-color: #fff;
+    border: 1px solid #241407;
+    overflow: hidden;
+}
+
+form button:active {
+    transform: scale(.9);
+}
+
+/* animación "click acá!" */
+
+.pie-registro {
+    display: block;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.link {
+    color: inherit;
+    position: relative;
+}
+
+.link:hover {
+    color: var(--color_3);
+}
+
+.link::before {
+    content: "Click";
+    font-size: 0.9em;
+    background: black;
+    color: white;
+    line-height: 1em;
+    padding: 0.2em 0.15em 0;
+    border-radius: 0.2em;
+    position: absolute;
+    top: -1.5em;
+    left: 50%;
+    opacity: 0;
+    transform: translate(-65%, 20%) rotateZ(-1deg);
+    transition: 0.4s opacity cubic-bezier(0.33, 1, 0.68, 1), 0.4s transform cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.link:after {
+    content: "acá!";
+    position: absolute;
+    font-size: 0.9em;
+    background: black;
+    color: white;
+    line-height: 1em;
+    padding: 0.2em 0.15em 0;
+    border-radius: 0.2em;
+    top: -1.5em;
+    left: 50%;
+    opacity: 0;
+    transform: translate(45%, 20%) rotateZ(1deg);
+    transition: 0.4s opacity cubic-bezier(0.33, 1, 0.68, 1), 0.4s transform cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.link:hover::before {
+    opacity: 1;
+    transform: translatex(-75%) rotateZ(-3deg);
+}
+
+.link:hover::after {
+    opacity: 1;
+    transform: translatex(45%) rotateZ(3deg);
+}
+
+/* BODY/> */
